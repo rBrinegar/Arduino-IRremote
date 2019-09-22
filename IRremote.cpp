@@ -16,6 +16,7 @@
 // JVC and Panasonic protocol added by Kristian Lauszus (Thanks to zenwheel and other people at the original blog post)
 // LG added by Darryl Smith (based on the JVC protocol)
 // Whynter A/C ARC-110WD added by Francesco Meschia
+// RCMM protocol added by Richard Brinegar
 //******************************************************************************
 
 // Defining IR_GLOBAL here allows us to declare the instantiation of global variables
