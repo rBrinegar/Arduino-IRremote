@@ -4,7 +4,7 @@ Infrared remote library for Arduino: send and receive infrared signals with mult
 
 Added RCMM protocol
 
-Added a new match function WITHIN to IRremote.cpp that allows custom MARK_EXCESS values and no TOLERANCE percentages
+Added a new match function MATCH_WITHIN to IRremote.cpp that allows for custom MARK_EXCESS values and no TOLERANCE percentages
 
 Updated examples/IRrecord/IRrecord.ino
 
