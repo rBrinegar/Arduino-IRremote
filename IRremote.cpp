@@ -46,7 +46,7 @@ int  MATCH (int measured,  int desired)
 {
  	DBG_PRINT(F("Testing: "));
  	DBG_PRINT(TICKS_LOW(desired), DEC);
- 	DBG_PRINT(F(" <= "));
+ 	DBG_PRINT(F(" >= "));
  	DBG_PRINT(measured, DEC);
  	DBG_PRINT(F(" <= "));
  	DBG_PRINT(TICKS_HIGH(desired), DEC);
@@ -71,7 +71,7 @@ int  MATCH_MARK (int measured_ticks,  int desired_us)
 	DBG_PRINT("us");
 	DBG_PRINT(": ");
 	DBG_PRINT(TICKS_LOW(desired_us + MARK_EXCESS) * USECPERTICK, DEC);
-	DBG_PRINT(F(" <= "));
+	DBG_PRINT(F(" >= "));
 	DBG_PRINT(measured_ticks * USECPERTICK, DEC);
 	DBG_PRINT(F(" <= "));
 	DBG_PRINT(TICKS_HIGH(desired_us + MARK_EXCESS) * USECPERTICK, DEC);
@@ -97,7 +97,7 @@ int  MATCH_SPACE (int measured_ticks,  int desired_us)
 	DBG_PRINT("us");
 	DBG_PRINT(": ");
 	DBG_PRINT(TICKS_LOW(desired_us - MARK_EXCESS) * USECPERTICK, DEC);
-	DBG_PRINT(F(" <= "));
+	DBG_PRINT(F(" >= "));
 	DBG_PRINT(measured_ticks * USECPERTICK, DEC);
 	DBG_PRINT(F(" <= "));
 	DBG_PRINT(TICKS_HIGH(desired_us - MARK_EXCESS) * USECPERTICK, DEC);
@@ -122,7 +122,7 @@ int MATCH_WITHIN (int measured_ticks, int desired_us, int excess_us)
 	DBG_PRINT("us");
 	DBG_PRINT(": ");
  	DBG_PRINT(((desired_us - excess_us) / USECPERTICK), DEC);
- 	DBG_PRINT(F(" <= "));
+ 	DBG_PRINT(F(" >= "));
  	DBG_PRINT(measured_ticks, DEC);
  	DBG_PRINT(F(" <= "));
  	DBG_PRINT(((desired_us + excess_us) / USECPERTICK), DEC);
