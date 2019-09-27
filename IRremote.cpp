@@ -111,11 +111,11 @@ int  MATCH_SPACE (int measured_ticks,  int desired_us)
  	return passed;
 }
 
-// added the WITHIN function because the previous MATCH functions allows too large of an
+// added the MATCH_WITHIN function because the previous MATCH functions allows too large of an
 // acceptable range for JVC, LG, NEC and RCMM protocols
-int WITHIN (int measured_ticks, int desired_us, int tolerance_us)
+int MATCH_WITHIN (int measured_ticks, int desired_us, int tolerance_us)
 {
- 	DBG_PRINT(F("Testing within: "));
+ 	DBG_PRINT(F("Testing within (actual vs desired): "));
  	DBG_PRINT(((desired_us - tolerance_us) / USECPERTICK), DEC);
  	DBG_PRINT(F(" <= "));
  	DBG_PRINT(measured_ticks, DEC);
@@ -127,7 +127,7 @@ int WITHIN (int measured_ticks, int desired_us, int tolerance_us)
     DBG_PRINTLN(F("?; passed"));
   else
     DBG_PRINTLN(F("?; FAILED"));
- 	return passed;
+  return passed;
 }
 
 //+=============================================================================
