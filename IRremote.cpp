@@ -121,13 +121,13 @@ int MATCH_WITHIN (int measured_ticks, int desired_us, int excess_us)
 	DBG_PRINT(desired_us, DEC);
 	DBG_PRINT("us");
 	DBG_PRINT(": ");
- 	DBG_PRINT(((desired_us - excess_us) / USECPERTICK), DEC);
+ 	DBG_PRINT((desired_us - excess_us), DEC);
  	DBG_PRINT(F(" >= "));
- 	DBG_PRINT(measured_ticks, DEC);
+ 	DBG_PRINT(measured_ticks * USECPERTICK, DEC);
  	DBG_PRINT(F(" <= "));
- 	DBG_PRINT(((desired_us + excess_us) / USECPERTICK), DEC);
-    bool passed = ((measured_ticks >= ((desired_us - excess_us) / USECPERTICK))
-                   && (measured_ticks <= ((desired_us + excess_us) / USECPERTICK))) ;
+ 	DBG_PRINT((desired_us + excess_us), DEC);
+    bool passed = (((measured_ticks * USECPERTICK) >= (desired_us - excess_us))
+                   && ((measured_ticks  * USECPERTICK) <= (desired_us + excess_us))) ;
   if (passed)
     DBG_PRINTLN(F("?; passed"));
   else
