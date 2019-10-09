@@ -24,8 +24,8 @@
 #define RCMM_TWO_SPACE              611
 #define RCMM_THREE_SPACE            778
 
-#define RCMM_HDR_TOLERANCE           55
-#define RCMM_DATA_TOLERANCE          83
+#define RCMM_HDR_EXCESS              55
+#define RCMM_DATA_EXCESS             83
 
 #define RCMM_TOGGLE_32BIT        0x8000
 
@@ -63,15 +63,15 @@ bool IRrecv::decodeRCMM(decode_results *results)
     int            val ;
 
     val = (results->rawbuf[offset++] + results->rawbuf[offset++]) - RCMM_HDR_MARK_TICKS ;
-    if (!MATCH_WITHIN(val, RCMM_HDR_SPACE, RCMM_HDR_TOLERANCE)) return false ;
+    if (!MATCH_WITHIN(val, RCMM_HDR_SPACE, RCMM_HDR_EXCESS)) return false ;
 
     while (offset < (results->rawlen - 1)) {
         data <<= 2 ;
         val = (results->rawbuf[offset++] + results->rawbuf[offset++]) - RCMM_DATA_MARK_TICKS ;
-        if      (MATCH_WITHIN(val, RCMM_ZERO_SPACE, RCMM_DATA_TOLERANCE)) ;
-        else if (MATCH_WITHIN(val, RCMM_ONE_SPACE, RCMM_DATA_TOLERANCE))   data += 1 ;
-        else if (MATCH_WITHIN(val, RCMM_TWO_SPACE, RCMM_DATA_TOLERANCE))   data += 2 ;
-        else if (MATCH_WITHIN(val, RCMM_THREE_SPACE, RCMM_DATA_TOLERANCE)) data += 3 ;
+        if      (MATCH_WITHIN(val, RCMM_ZERO_SPACE, RCMM_DATA_EXCESS)) ;
+        else if (MATCH_WITHIN(val, RCMM_ONE_SPACE, RCMM_DATA_EXCESS))   data += 1 ;
+        else if (MATCH_WITHIN(val, RCMM_TWO_SPACE, RCMM_DATA_EXCESS))   data += 2 ;
+        else if (MATCH_WITHIN(val, RCMM_THREE_SPACE, RCMM_DATA_EXCESS)) data += 3 ;
         else                                                            return false ;
     }
 
