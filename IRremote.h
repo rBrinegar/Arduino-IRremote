@@ -145,10 +145,10 @@ decode_type_t;
 //------------------------------------------------------------------------------
 // Mark & Space matching functions
 //
-int  MATCH_WITHIN (int measured_ticks, int desired_us, int excess_us) ;
 int  MATCH        (int measured, int desired) ;
 int  MATCH_MARK   (int measured_ticks, int desired_us) ;
 int  MATCH_SPACE  (int measured_ticks, int desired_us) ;
+int  MATCH_WITHIN (int measured_ticks, int desired_us, int excess_us = MARK_EXCESS) ;
 
 //------------------------------------------------------------------------------
 // Results returned from the decoder
